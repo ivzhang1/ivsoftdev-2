@@ -1,7 +1,7 @@
 // Ivan Zhang
 // SoftDev2 pd7
-// K #00: I See a Red Door...
-// 2019-01-30
+// K #01: ...and I want to Paint It Better
+// 2019-01-31
 
 
 c = document.getElementById("slate");
@@ -11,15 +11,16 @@ var clear = document.getElementById("clear");
 
 clear.addEventListener( "click" , function() {
     ctx.clearRect( 0, 0, c.width, c.height );
+    //event.preventDefault();
 });
 
 var rect = false;
 c.addEventListener( "click" , function(event) {
-    //event.preventDefault();
+    //event.preventDefault(); // Disable activation of event
     if (rect) {
-        ctx.fillRect( event.offsetX, event.offsetY, 100, 100 );
+        ctx.fillRect( event.offsetX, event.offsetY, 100, 100 ); // Get the X, Y cors of Mouse-based on Canvas Coords
     } else {
-        ctx.beginPath();
+        ctx.beginPath(); // Empty list of saved subpaths
         ctx.ellipse( event.offsetX, event.offsetY, 20, 10, 0, 0, 2 * Math.PI );
         ctx.fill();
     }
@@ -29,11 +30,4 @@ var toggle = document.getElementById("toggle");
 
 toggle.addEventListener( "click" , function() {
     rect = !rect;
-    if(rect){
-      toggle.innerHTML = "Current Mode: Rectangle";
-    }
-    else{
-      toggle.innerHTML = "Current Mode: Dot";
-    }
-
 });
