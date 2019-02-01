@@ -1,4 +1,4 @@
-// Ivan Zhang
+// team Northpoint (Ivan Zhang, Qian Zhou)
 // SoftDev2 pd7
 // K #01: ...and I want to Paint It Better
 // 2019-01-31
@@ -14,13 +14,13 @@ clear.addEventListener( "click" , function() {
     //event.preventDefault();
 });
 
-var rect = false;
+var rect = false; //State var for box | dot
 c.addEventListener( "click" , function(event) {
-    //event.preventDefault(); // Disable activation of event
+    //event.preventDefault(); // Disable default process for event
     if (rect) {
         ctx.fillRect( event.offsetX, event.offsetY, 100, 100 ); // Get the X, Y cors of Mouse-based on Canvas Coords
     } else {
-        ctx.beginPath(); // Empty list of saved subpaths
+        ctx.beginPath(); // Empty list of saved subpaths and starts new one
         ctx.ellipse( event.offsetX, event.offsetY, 20, 10, 0, 0, 2 * Math.PI );
         ctx.fill();
     }
