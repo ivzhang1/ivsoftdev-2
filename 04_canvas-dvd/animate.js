@@ -1,7 +1,7 @@
-//team Redchewahwah -- Ivan Zhang, Ahnaf Kazi
-// SoftDev2 pd7
-// K #03: They lock us in the tower whenever we get caught
-// 2019-02-06
+//team Redchewahwah - Ivan Zhang, Ahnaf Kazi
+// SoftDev pd7
+// K #04: What is it saving the screen from?
+// 2019-02-07
 
 var anim = document.getElementById("circle");
 var dvd = document.getElementById("dvd");
