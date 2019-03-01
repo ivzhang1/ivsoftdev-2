@@ -7,7 +7,8 @@ import pymongo
 
 server_add = "134.209.120.192"
 connection = pymongo.MongoClient(server_add)
+db = connection.ivan
 
-collection = ivan.restaurant
+collection = db.restaurant
 
 print(collection)
