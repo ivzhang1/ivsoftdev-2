@@ -14,74 +14,26 @@
 '''
 import pymongo
 
-server_add = "134.209.120.192"
-connection = pymongo.MongoClient(server_add)
-db = connection.PinkMangoes
-collection = db.pokemons
-
-def pokemon_type(type):
+def pokemon_type(collection, type):
     results = collection.find({"type":type})
     return(results)
-    # for res in results:
-    #    print(res['name'])
-    #    for ty in res['type']:
-    #        print(ty)
-    #    print(res['height'] + " " + res['weight'])
-    #    print("\n")
 
-def pokemon_name(name):
+def pokemon_name(collection, name):
     results = collection.find({"name":name})
     return(results)
-    # for res in results:
-    #    print(res['name'])
-    #    for ty in res['type']:
-    #        print(ty)
-    #    print(res['height'] + " " + res['weight'])
-    #    print("\n")
 
-def pokemon_weight(weight):
+def pokemon_weight(collection, weight):
     results = collection.find({'weight':str(weight) + " kg"})
     return(results)
-    # for res in results:
-    #    print(res['name'])
-    #    for ty in res['type']:
-    #        print(ty)
-    #    print(res['height'] + " " + res['weight'])
-    #    print("\n")
 
-def pokemon_height(height):
+def pokemon_height(collection, height):
     results = collection.find({'height':str(height) + " m"})
     return(results)
-    # for res in results:
-    #    print(res['name'])
-    #    for ty in res['type']:
-    #        print(ty)
-    #    print(res['height'] + " " + res['weight'])
-    #    print("\n")
 
-def pokemon_evolvedFrom(prevEvol):
+def pokemon_evolvedFrom(collection, prevEvol):
     results = collection.find({"prev_evolution.name": prevEvol})
     return(results)
-    # for res in results:
-    #    print(res['name'])
-    #    for ty in res['type']:
-    #        print(ty)
-    #    print(res['height'] + " " + res['weight'])
-    #    print("\n")
 
-def pokemon_evolvedInto(nextEvol):
+def pokemon_evolvedInto(collection, nextEvol):
     results = collection.find({"next_evolution.name": nextEvol})
     return(results)
-    # for res in results:
-    #    print(res['name'])
-    #    for ty in res['type']:
-    #        print(ty)
-    #    print(res['height'] + " " + res['weight'])
-    #    print("\n")
-
-# pokemon_type("Grass")
-# pokemon_name("Tangela")
-# pokemon_weight(6.9)
-# pokemon_height(0.71)
-# pokemon_evolvedFrom("Bulbasaur")
-# pokemon_evolvedInto("Venusaur")
