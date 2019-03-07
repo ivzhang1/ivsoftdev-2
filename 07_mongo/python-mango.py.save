@@ -26,7 +26,7 @@ def pokemon_type(type):
     for res in results:
        print(res['name'])
        for ty in res['type']:
-           print(ty)
+           print ty
        print(res['height'] + " " + res['weight'])
        print("\n")
 
@@ -35,7 +35,7 @@ def pokemon_name(name):
     for res in results:
        print(res['name'])
        for ty in res['type']:
-           print(ty)
+           print ty
        print(res['height'] + " " + res['weight'])
        print("\n")
 
@@ -44,7 +44,7 @@ def pokemon_weight(weight):
     for res in results:
        print(res['name'])
        for ty in res['type']:
-           print(ty)
+           print ty
        print(res['height'] + " " + res['weight'])
        print("\n")
 
@@ -53,7 +53,7 @@ def pokemon_height(height):
     for res in results:
        print(res['name'])
        for ty in res['type']:
-           print(ty)
+           print ty
        print(res['height'] + " " + res['weight'])
        print("\n")
 
@@ -62,7 +62,7 @@ def pokemon_evolvedFrom(prevEvol):
     for res in results:
        print(res['name'])
        for ty in res['type']:
-           print(ty)
+           print ty
        print(res['height'] + " " + res['weight'])
        print("\n")
 
@@ -71,7 +71,7 @@ def pokemon_evolvedInto(nextEvol):
     for res in results:
        print(res['name'])
        for ty in res['type']:
-           print(ty)
+           print ty
        print(res['height'] + " " + res['weight'])
        print("\n")
 
