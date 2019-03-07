@@ -12,8 +12,10 @@ from util import pokemon_search, json_setup
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
-
-db_pointer = None
+server_add = "134.209.120.192"
+connection = pymongo.MongoClient(server_add)
+db = connection.ezrael
+db_pointer = db.pokemons
 
 @app.route("/")
 @app.route("/home", methods=["POST"])
@@ -22,23 +24,22 @@ def home():
 
 	if request.form.get('mongo_server') != '':
 		try:
-	                connection = pymongo.MongoClient(request.form.get("mongo_server") serverS$
+	                connection = pymongo.MongoClient(request.form.get("mongo_server"))
         	        connection.server_info()
                 	db = connection.ezrael
                 	global db_pointer
                 	db_pointer = db
                 	json_setup.setup(db)
                 	flash("Mongo Server Setup")
+			db_pointer = db.pokemons
 
         	except:
                 	flash("SERVER ISSUE: Using Default Mongo Server")
-			connection = pymongo.MongoClient("134.209.120.192")
-                        connection.server_info()
-                        db = connection.ezrael
-                        global db_pointer
-                        db_pointer = db
-                        json_setup.setup(db)
-
+			connection = pymongo.MongoClient(server_add)
+			db = connection.ezrael     
+			global db_pointer
+			db_pointer = db.pokemons
+	
 	if request.form.get('search_option') == 'name':
 		results = pokemon_search.pokemon_name(db_pointer, request.form.get('query').title())
 

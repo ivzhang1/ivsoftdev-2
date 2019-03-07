@@ -2,8 +2,10 @@ import json
 
 import pymongo
 
-def setup(connection):
+def setup(db):
     id = 1
+    connection = db.pokemons
+
     pkmon_list = connection.find_one({})["pokemon"]
     with open("pokedex_parsed.json", "w") as f:
         f.write("[")
@@ -14,7 +16,7 @@ def setup(connection):
             id+=1
         f.write("]")
 
-    collection = db.pokemons
+    collection =db.ezrael
     collection.drop()
     f=open("pokedex_parsed.json","r")
     json_data = f.read()
