@@ -2,6 +2,7 @@
 #SoftDev2 pd7
 #K #08: Ay Mon, Go Git It From Yer Flask
 #2019-03-07
+
 import os
 
 import pymongo
@@ -18,28 +19,31 @@ db = connection.ezrael
 db_pointer = db.pokemons
 
 @app.route("/")
-@app.route("/home", methods=["POST"])
+@app.route("/home")
 def home():
+	return render_template("home.html")
+
+@app.route("/search", methods=["POST"])
+def search():
 	results = []
-
-	if request.form.get('mongo_server') != '':
+	ip = request.form.get('mongo_server')
+	if ip != '':
 		try:
-	                connection = pymongo.MongoClient(request.form.get("mongo_server"))
-        	        connection.server_info()
-                	db = connection.ezrael
-                	global db_pointer
-                	db_pointer = db
-                	json_setup.setup(db)
-                	flash("Mongo Server Setup")
+			connection = pymongo.MongoClient(ip)
+			# connection.server_info()
+			db = connection.ezrael
+			# global db_pointer
+			db_pointer = db.pokemons
+			# json_setup.setup(db)
+			# flash("Mongo Server Setup")
+			db_pointer = db.pokemons
+		except:
+			flash("SERVER ISSUE: Using Default Mongo Server")
+			connection = pymongo.MongoClient(server_add)
+			db = connection.ezrael
+			# global db_pointer
 			db_pointer = db.pokemons
 
-        	except:
-                	flash("SERVER ISSUE: Using Default Mongo Server")
-			connection = pymongo.MongoClient(server_add)
-			db = connection.ezrael     
-			global db_pointer
-			db_pointer = db.pokemons
-	
 	if request.form.get('search_option') == 'name':
 		results = pokemon_search.pokemon_name(db_pointer, request.form.get('query').title())
 
@@ -63,7 +67,6 @@ def home():
 
 	if results.count(True) == 0:
 		flash("No Results Found")
-
 	return render_template("home.html", _ress = results)
 
 if __name__ == "__main__":
