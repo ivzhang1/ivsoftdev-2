@@ -47,7 +47,7 @@ svg.append("text")
     .attr("text-anchor", "end")
     .attr("x", width/2 + margin.left + margin.right)
     .attr("y", height + margin.top + margin.bottom)
-    .text("Calorie Count");
+    .text("Sodium Count");
 
 graph.append('g')
     .attr('transform', 'translate(0,' + height + ')')
@@ -63,7 +63,7 @@ svg.append("text")
     .attr("x", -175)
     .attr("dy", ".75em")
     .attr("transform", "rotate(-90)")
-    .text("Sodium Count");
+    .text("Calorie Count");
 
 graph.append('g')
     .attr('transform', 'translate(0,0)')
