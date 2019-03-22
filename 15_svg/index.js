@@ -79,3 +79,11 @@ svg.selectAll("circle")
    .attr("cx", function (d) { return x_range(parseInt(d["sodium"])); } )
    .attr("r", 5)
    // .style("opacity", 0.6);
+
+ svg.selectAll("text")
+    .data(cereals)
+    .enter().append("text")
+    .attr("y", function (d) { return y_range(parseInt(d["calories"])); } )
+    .attr("x", function (d) { return x_range(parseInt(d["sodium"])); } )
+    .attr("font-size", "8px")
+    .text(function (d) { return d["name"] });
