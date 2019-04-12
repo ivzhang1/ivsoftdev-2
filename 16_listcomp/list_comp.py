@@ -17,11 +17,18 @@ def password_check(_pass):
         error_messages.append("Password has to have at least 1 digit.")
 
     if len(error_messages) > 0:
-        for em in error_messages:
-            print(em)
-        return
+        error_str = "\n".join([em for em in error_messages])
+        return error_str
     else:
         return "Success"
 
+def pass_raters(_pass):
+    non_alpha = ['.', '?', '!', '&', '#', ',', ';', ':', '-', '_', '*']
+    lower = [char for char in _pass if char.islower()]
+    upper = [char for char in _pass if char.isupper()]
+    digits = [char for char in _pass if char.isdigit()]
+    non_alpha = [char for char in _pass if char in non_alpha]
+    return len(lower) * len(upper) * len(digits) * len(non_alpha) / 1000
 
-# password_check("iiii")
+print(password_check("iiii"))
+print(pass_raters("iiii"))
