@@ -64,7 +64,7 @@ for i in range(1, 101):
 
 print(prime)
 
-# #5b
+#5b
 prime = [
 	i
 	for i in range(1, 101)
@@ -73,19 +73,21 @@ prime = [
 print(prime)
 
 
-# #6a Divisors in ascending
-# l = []
+#6a Divisors in ascending
+input = raw_input("Enter a number: ")
+num = int(input)
+l = []
 
-# for i in range(3):
-# 	l.append(i*0)
-# 	l.append(i*1)
-# 	l.append(i*2)
+for i in range(1, num+1):
+	if num%i==0:
+		l.append(i)
 
-# print(l)
 
-# #6b
-# l = [i*x for i in range(3) for x in range(3)]
-# print(l)
+print(l)
+
+#6b
+l = [i for i in range(1, num+1) if num%i==0]
+print(l)
 
 # #7a Transpose Matrix
 # l = []
