@@ -52,23 +52,25 @@ print(l)
 
 l = list({i for i in range(1, 101) for j in range(2, int(math.sqrt(i))+1) if i%j == 0})
 
-
 print(l)
 
 
-# #5a Prime from [0,100] ascending
-# l = []
+#5a Prime from [0,100] ascending
+prime = []
 
-# for i in range(3):
-# 	l.append(i*0)
-# 	l.append(i*1)
-# 	l.append(i*2)
+for i in range(1, 101):
+	if i not in l:
+		prime.append(i)
 
-# print(l)
+print(prime)
 
 # #5b
-# l = [i*x for i in range(3) for x in range(3)]
-# print(l)
+prime = [
+	i
+	for i in range(1, 101)
+	if i not in l
+]
+print(prime)
 
 
 # #6a Divisors in ascending
