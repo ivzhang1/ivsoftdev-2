@@ -74,8 +74,8 @@ print(prime)
 
 
 #6a Divisors in ascending
-input = raw_input("Enter a number: ")
-num = int(input)
+num = 100 #raw_input("Enter a number: ")
+# num = int(input)
 l = []
 
 for i in range(1, num+1):
@@ -90,15 +90,16 @@ l = [i for i in range(1, num+1) if num%i==0]
 print(l)
 
 # #7a Transpose Matrix
-# l = []
+l = [[0,1,2],[3,4,5],[6,7,8]]
+res = []
 
-# for i in range(3):
-# 	l.append(i*0)
-# 	l.append(i*1)
-# 	l.append(i*2)
+for r in range(3):
+	res.append([l[c][r] for c in range(3)])
 
-# print(l)
+print(res) # [[0,3,6],[1,4,7],[2,5,8]]
 
-# #7b
-# l = [i*x for i in range(3) for x in range(3)]
-# print(l)
+
+#7b
+res = [[l[c][r] for c in range(3)] for r in range(3)]
+
+print(res)
