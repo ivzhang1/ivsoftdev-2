@@ -21,3 +21,8 @@ def sym_difference(s0, s1):
     return set_difference(union(s0,s1), intersection(s0,s1))
 
 print(sym_difference({1,2,3}, {2,3,4}))
+
+def cartesian_product(s0, s1):
+    return [(x, y) for x in s0 for y in s1]
+
+print(cartesian_product({1,2}, {"red", "white"}))
