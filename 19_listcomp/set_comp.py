@@ -16,3 +16,8 @@ def set_difference(s0, s1):
 
 print(set_difference({1,2,3}, {2,3,4}))
 print(set_difference({2,3,4}, {1,2,3}))
+
+def sym_difference(s0, s1):
+    return set_difference(union(s0,s1), intersection(s0,s1))
+
+print(sym_difference({1,2,3}, {2,3,4}))
