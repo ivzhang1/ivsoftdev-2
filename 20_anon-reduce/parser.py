@@ -19,3 +19,6 @@ def find_word_phrase_freq(wp):
     return len(correct_phrases)
 
 print(find_word_phrase_freq(phrase))
+
+most_freq_word = reduce(lambda x,y: x if find_word_freq(x) > find_word_freq(y) else y, text)
+print(most_freq_word)
