@@ -10,8 +10,8 @@ categories = lines[0].split(",")
 lines = lines[1:]
 # print(lines)
 
-json = '{"results": ['
-limit = len(lines)
+json = '['
+limit = 100
 count = 0
 
 for line in lines:
@@ -34,6 +34,6 @@ for line in lines:
 
 g = open("schoolDemos.json", "w")
 json = json[:-1]
-json += "]}"
+json += "]"
 g.write(json)
 g.close()
