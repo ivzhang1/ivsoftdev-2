@@ -11,7 +11,7 @@ lines = lines[1:]
 # print(lines)
 
 json = '['
-limit = 100
+limit = 10
 count = 0
 
 for line in lines:
