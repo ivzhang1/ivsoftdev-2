@@ -29,10 +29,15 @@ repeat('cool')(3);
 
 function make_counter(){
   var num = 1;
-  function rand(){
-    console.log(num);
-    num ++;
+  function rand(i = 0){
+      console.log(num);
+      num ++;
+      function access(){
+        return num;
+      }
+      return access;
   }
+
   return rand;
 }
 
@@ -44,3 +49,5 @@ ctr1();
 ctr2();
 ctr1();
 ctr2();
+
+console.log(ctr1()());
