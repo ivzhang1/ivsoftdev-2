@@ -26,3 +26,21 @@ var r1 = repeat();
 r1(2);
 r1(2);
 repeat('cool')(3);
+
+function make_counter(){
+  var num = 1;
+  function rand(){
+    console.log(num);
+    num ++;
+  }
+  return rand;
+}
+
+var ctr1 = make_counter();
+var ctr2 = make_counter();
+
+ctr1();
+ctr1();
+ctr2();
+ctr1();
+ctr2();
