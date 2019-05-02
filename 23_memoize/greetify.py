@@ -40,7 +40,7 @@ def memos(f):
 
     return helper
 
-#@memos
+@memos
 def fib(n):
     if n == 0:
         return 0
@@ -55,4 +55,4 @@ def fib(n):
     #     #print(fib_memos)
     # return fib_memos[-1]
 
-print(memos(fib)(10))
+print(fib(10))
